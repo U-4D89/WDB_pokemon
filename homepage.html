@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokemon</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="pokeball.css">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    </head>
+    <body>
+        <div class="columns is-mobile is-centered">
+
+            <main class="column is-half">
+                <img id="pokelogo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" alt="Pokemon logo">
+
+                <div class="center-on-page">
+                    <div class="pokeball">
+                    <div class="pokeball__button"></div>
+                    </div>
+                </div>
+
+                <div class="block">
+                    <div class="field is-grouped">
+                        <div class="control is-expanded">
+                            <input class="input" type="text" placeholder="Write a name of pokemon" id="pokeName">
+                        </div>
+
+                        <div class="control">
+                            <button class="button is-info" id="search" >Search!</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block" id="info">
+                    <div id="pic" class="column is-half">
+                        <!-- pokemon image -->
+                    </div>
+                    
+                    <div  class="column is-half">
+                        <!-- pokemon info -->
+                        <p class="has-text-weight-semibold">Name:    </p><i id="name"> 0000</i>
+
+                        <p class="has-text-weight-semibold">Weight:    </p><i id="weight"> 0000</i>
+                        <p class="has-text-weight-semibold">Height:    </p><i id="height"> 0000</i>
+
+
+                    </div>
+
+
+                </div>
+
+                
+
+            </main>
+
+        </div>
+
+        <footer>
+            <script src="index.js"></script>
+        </footer>
+    </body>
+</html>
+
