@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokemon</title>
+        <link rel="stylesheet" href="public/styles/style.css">
+        <!--<link rel="public/styles/stylesheet" href="pokeball.css">-->
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      
+
+
+    </head>
+    <body>
+        
+        <div class="columns">
+            <div class="column">
+                <div id="fondo">
+                    <!-- <p class="bd-notification is-info">First column</p> -->
+                    <img id="pokelogo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png" alt="Pokemon logo">
+                    <br><br>
+                    <div class="block">
+                        <form id="form" class="field is-grouped">
+                           
+                            <div class="control is-expanded">
+                                <input class="input" type="text" placeholder="Write a name of pokemon" id="pokeName" autofocus>
+                            </div>
+    
+                            <div class="control">
+                                <button class="button is-info" id="search" type="submit">Search!</button>
+                            </div>
+                            
+                        </form>
+
+                    </div>
+
+                </div>
+             
+
+
+                <div class="columns">
+                    <div class="column">
+                        <!-- <p class="bd-notification is-info">First nested column</p> -->
+
+                        <menu id="match-list">
+
+                        </menu>
+                        <br><br>
+                        <section  id="info">
+                                <div class="column is-11 is-offset-1">
+                                    <div id="pic" class="column is-half">
+                                        <!-- pokemon image -->
+                                    </div>
+                                </div>    
+
+
+                                <div class="column">
+                                    <!-- <p class="bd-notification is-info">Second nested column</p> -->
+                                    <!-- pokemon info -->
+                                    <p class="has-text-weight-semibold">Name:    </p><i id="name"> 0000</i>
+                                    <p class="has-text-weight-semibold" id="Pokemon-Types">Types:   </p><i id="pokemon-types"></i>
+                                    <p class="has-text-weight-semibold" id="Type">Type:    </p><i id="type"> 0000</i>
+                                    <p class="has-text-weight-semibold">Weight:    </p><i id="weight"> 0000</i>
+                                    <p class="has-text-weight-semibold">Height:    </p><i id="height"> 0000</i>
+                                </div>
+                               
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            
+        </footer>
+
+        <script src="public/scripts/index.js"></script>
+    </body>
+</html>
