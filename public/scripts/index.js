@@ -31,7 +31,8 @@ const outputHtml = matches => {
 
         matchList.textContent = '';
         const html =  matches.forEach( match=> {
-            let newOption = document.createElement("ul");
+            let newOption = document.createElement("P");
+            newOption.classList.add("option");
             newOption.textContent = match.name;
             //console.log(newOption)
             matchList.appendChild(newOption);
@@ -148,7 +149,8 @@ form.addEventListener('submit', function(event) {
     if (pokeName.length === 0 || pokeName === undefined || pokeName === null){
         alert('no pokemon to search')
     }else{
-        callAPI(pokeName);
+        let pokeNameLower = pokeName.toLowerCase();
+        callAPI(pokeNameLower);
     }
 
     event.preventDefault()

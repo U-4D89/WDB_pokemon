@@ -10,6 +10,9 @@
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
       
 
 
@@ -41,42 +44,47 @@
              
 
 
-                <div class="columns">
+                <div class="columns is-mobile is-centered">
                     <div class="column">
-                        <!-- <p class="bd-notification is-info">First nested column</p> -->
 
-                        <menu id="match-list">
-
-                        </menu>
+                        <menu id="match-list"></menu>
                         <br><br>
-                        <section  id="info">
-                                <div class="column is-11 is-offset-1">
-                                    <div id="pic" class="column is-half">
+
+                        <section id="info" class="column is-half">
+                        
+                            <div class="card">
+                                <div class="card-header">
+                                    <p id="name" class="has-text-centered subtitle is-3 is-spaced"> 0000</p>
+                                </div>
+
+                                <div class="card-image">
+                                    <figure >
+                                    <div id="pic" class="image is-1by1">
                                         <!-- pokemon image -->
                                     </div>
-                                </div>    
-
-
-                                <div class="column">
-                                    <!-- <p class="bd-notification is-info">Second nested column</p> -->
-                                    <!-- pokemon info -->
-                                    <p class="has-text-weight-semibold">Name:    </p><i id="name"> 0000</i>
-                                    <p class="has-text-weight-semibold" id="Pokemon-Types">Types:   </p><i id="pokemon-types"></i>
-                                    <p class="has-text-weight-semibold" id="Type">Type:    </p><i id="type"> 0000</i>
-                                    <p class="has-text-weight-semibold">Weight:    </p><i id="weight"> 0000</i>
-                                    <p class="has-text-weight-semibold">Height:    </p><i id="height"> 0000</i>
+                                    </figure>
                                 </div>
-                               
+                        
+                                <div class="card-content">
+                                    <div class="content">
+                                        
+                                        <!-- pokemon info -->
+                                        <p class="has-text-weight-semibold" id="Pokemon-Types">Types:   </p><i id="pokemon-types"></i>
+                                        <p class="has-text-weight-semibold" id="Type">Type:    </p><i id="type"> 0000</i>
+                                        <p class="has-text-weight-semibold">Weight:    </p><i id="weight"> 0000</i>
+                                        <p class="has-text-weight-semibold">Height:    </p><i id="height"> 0000</i>
+    
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        
                         </section>
+
                     </div>
                 </div>
             </div>
         </div>
-
-        <footer>
-            
-        </footer>
-
         <script src="public/scripts/index.js"></script>
     </body>
 </html>

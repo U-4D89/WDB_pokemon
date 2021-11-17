@@ -8,17 +8,51 @@
 
 }
 
+form{ padding:  5% 8% 2%; }
+
 #match-list {
     background-color: #e4e4e4c0;
-    margin-left: 2%;
+    margin-left: 8%;
+    padding: 0%;
     width: 40%;
 }
 
-ul {
+.option {
     list-style-type: none;
-    
-  
+    padding: 0%;
     width: 100%;
 }
 
-ul:hover { background-color: #a8a8a8; color: white;}
+.option:hover { background-color: #a8a8a8; color: white;}
+
+
+.card{
+    background-color: #426F9D !important;
+    border: 0.6rem solid #FFBB70 ;
+    border-radius: 2% !important;
+    color: whitesmoke;
+    font-family: 'Varela Round', sans-serif;
+    width: 80%;
+}
+
+.card-header{ 
+    background-color: #9b9b9b !important;
+    border-radius: 4% !important;
+    text-align: center !important;
+}
+
+#name, p, i { color: antiquewhite;  }
+
+
+.card-image{ 
+    background-color: rgba(200, 231, 230 , 0.9) !important;
+    /*background-image: url("/public/images/grass.jpg") !important;*/
+    margin: 2rem;
+ }
+
+#pic{ 
+    width: 100%;
+    height: 100%;
+}
+
+
