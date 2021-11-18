@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pokemon</title>
+        <link rel="icon" type="image/x-icon" href="public/images/pokeicon.png">
         <link rel="stylesheet" href="public/styles/style.css">
         <!--<link rel="public/styles/stylesheet" href="pokeball.css">-->
 
@@ -12,8 +13,7 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-      
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Varela+Round&display=swap" rel="stylesheet">
 
 
     </head>
@@ -30,6 +30,7 @@
                            
                             <div class="control is-expanded">
                                 <input class="input" type="text" placeholder="Write a name of pokemon" id="pokeName" autofocus>
+                                <menu id="match-list"></menu>
                             </div>
     
                             <div class="control">
@@ -38,53 +39,72 @@
                             
                         </form>
 
+                        
                     </div>
+                    
 
                 </div>
              
 
 
                 <div class="columns is-mobile is-centered">
-                    <div class="column">
+                    <br><br>
 
-                        <menu id="match-list"></menu>
-                        <br><br>
-
-                        <section id="info" class="column is-half">
-                        
-                            <div class="card">
-                                <div class="card-header">
-                                    <p id="name" class="has-text-centered subtitle is-3 is-spaced"> 0000</p>
-                                </div>
-
-                                <div class="card-image">
-                                    <figure >
-                                    <div id="pic" class="image is-1by1">
-                                        <!-- pokemon image -->
-                                    </div>
-                                    </figure>
-                                </div>
-                        
-                                <div class="card-content">
-                                    <div class="content">
-                                        
-                                        <!-- pokemon info -->
-                                        <p class="has-text-weight-semibold" id="Pokemon-Types">Types:   </p><i id="pokemon-types"></i>
-                                        <p class="has-text-weight-semibold" id="Type">Type:    </p><i id="type"> 0000</i>
-                                        <p class="has-text-weight-semibold">Weight:    </p><i id="weight"> 0000</i>
-                                        <p class="has-text-weight-semibold">Height:    </p><i id="height"> 0000</i>
-    
-                                    </div>
-                                
-                                </div>
+                    <section id="info" class="column is-half">
+                    
+                        <div class="card">
+                            <div class="card-header">
+                                <p id="name" class="has-text-centered subtitle is-3 is-spaced"> 0000</p>
                             </div>
-                        
-                        </section>
+                            <div class="card-image">
+                                <figure >
+                                <div id="pic" class="image is-128x128">
+                                    <!-- pokemon image -->
+                                </div>
+                                </figure>
+                            </div>
+                    
+                            <div class="card-content">
+                                    
+                                <!-- pokemon info -->
+                                <ul>
+                                    <li class="has-text-weight-semibold" id="Pokemon-Types"> Types:
+                                        <span id="pokemon-types" class="has-text-weight-light"></span>
+                                    </li>
 
-                    </div>
+                                    <li class="has-text-weight-semibold" id="Type">Type: 
+                                        <span id="type" class="has-text-weight-light"></span>
+                                    </li>
+
+                                    <li class="has-text-weight-semibold">Weight:
+                                        <span id="weight" class="has-text-weight-light"></span>
+                                    </li>
+
+                                    <li class="has-text-weight-semibold">Height:
+                                        <span id="height"  class="has-text-weight-light"></span>
+                                    </li>
+                                </ul>
+
+                                <div id="poke-container">
+                                    
+                                </div>
+                                <br><br>
+                                <img src="/public/images/183-1830149_pokeball-pixel-png-pokeball-pixel-art-gif-transparent_preview_rev_1.png" alt="pokeball" id="pokeHead">
+
+                               
+                            </div>
+
+                           
+                        </div>
+
+                        
+                    
+                    </section>
                 </div>
+
             </div>
         </div>
+
         <script src="public/scripts/index.js"></script>
     </body>
 </html>
