@@ -36,6 +36,11 @@ const outputHtml = matches => {
             newOption.textContent = match.name;
             //console.log(newOption)
             matchList.appendChild(newOption);
+
+            newOption.addEventListener('click', (event) => {
+                const pokemon = newOption.innerText;
+                search.value = pokemon;
+            } )
             
         });
        
@@ -108,34 +113,43 @@ function organiseData(pokeInfo) {
         //block single type field
         document.querySelector('#type').style.display = 'none';
         document.querySelector('#Type').style.display = 'none';
-        document.querySelector('#pokemon-types').style.display = 'block';
-        document.querySelector('#Pokemon-Types').style.display = 'block';
+        //document.querySelector('#pokemon-types').style.display = 'block';
+        //document.querySelector('#Pokemon-Types').style.display = 'block';
 
         let pokemonTypes = document.querySelector('#pokemon-types');
 
-        let firstTypeField = document.createElement("P");
+        let firstTypeField = document.createElement("SPAN");
         let firstTypeContent = (`${types[0].type.name}`);
-        firstTypeField.textContent= `${firstTypeContent}`;
+        firstTypeField.textContent= capitalize(`${firstTypeContent}, `);
         pokemonTypes.appendChild(firstTypeField);
 
-        let secondTypeField = document.createElement("P");
+        let secondTypeField = document.createElement("SPAN");
         let secondTypeContent = (`${types[1].type.name}`);
-        secondTypeField.textContent = `${secondTypeContent}`;
+        secondTypeField.textContent = capitalize(secondTypeContent);
         pokemonTypes.appendChild(secondTypeField);
 
       
 
 
-    } else {
+    } else if ( types.length === 1 ) {
 
         //block multi types field
         document.querySelector('#pokemon-types').style.display = 'none';
         document.querySelector('#Pokemon-Types').style.display = 'none';
-        document.querySelector('#type').style.display = 'block';
-        document.querySelector('#Type').style.display = 'block';
+        // document.querySelector('#type').style.display = 'block';
+        // document.querySelector('#Type').style.display = 'block';
 
         let typeField = document.querySelector('#type');
-        typeField.textContent = pokeInfo.data.types[0].type.name;
+        typeField.textContent = capitalize(pokeInfo.data.types[0].type.name);
+
+
+    } else {
+
+        document.querySelector('#pokemon-types').style.display = 'none';
+        document.querySelector('#Pokemon-Types').style.display = 'none';
+        let typeField = document.querySelector('#type');
+        typeField.textContent = 'Normal'
+
     }
     
 };
