@@ -13,17 +13,25 @@ const searchPokemon = async searchText => {
     const response = await fetch('../data/pokemon.json');
     const pokemons = await response.json();
 
-    //console.log(pokemons);
-
     let matches = pokemons.filter(pokemon => {
         const regex = new RegExp(`^${searchText}`, 'gi');
         return pokemon.name.match(regex) || pokemon.name.match(regex);
     })
 
     if (searchText.length === 0) { matches = [] };
-    //console.log(matches)
+    
     outputHtml(matches);
 }
+
+function clearMatchList() {
+    
+    while(matchList.firstChild) {
+        matchList.removeChild(matchList.firstChild)
+    }
+    
+
+}
+
 
 const outputHtml = matches => {
     //console.log(matches)
@@ -34,26 +42,29 @@ const outputHtml = matches => {
             let newOption = document.createElement("P");
             newOption.classList.add("option");
             newOption.textContent = match.name;
-            //console.log(newOption)
             matchList.appendChild(newOption);
 
+
             newOption.addEventListener('click', (event) => {
+
                 const pokemon = newOption.innerText;
                 search.value = pokemon;
-            } )
+              
+                //when click delete all other options
+                clearMatchList()
+                
+            })
             
         });
-       
     }
 }
-
-search.addEventListener('input', () => searchPokemon(search.value))
 
 
 function capitalize(str) {
     const str2 = str.charAt(0).toUpperCase() + str.slice(1);
     return str2
 };
+
 
 function callAPI(pokemon) {
 
@@ -74,11 +85,11 @@ function callAPI(pokemon) {
 
 function organiseData(pokeInfo) {
 
+    //clean pics and search bar and the match list
     document.querySelector('#pic').innerHTML = '';
-    matchList.style.display = 'none';
+    search.value='';
     document.querySelector('#info').style.display = 'flex';
-    
-   
+
     //name 
     let name = pokeInfo.data.name;
     let nameField = document.querySelector('#name');
@@ -108,47 +119,51 @@ function organiseData(pokeInfo) {
 
     //type
     let types = pokeInfo.data.types;
-    if (types.length > 1) {
+    
+
+    let uniqueType =   document.querySelector('#Type');
+    let uniqueContent = document.querySelector('#type');
+
+    let multiTypes = document.querySelector('#Pokemon-Types');
+    let multiContents =  document.querySelector('#pokemon-types');
+
+
+    if ( types.length === 1 ) {
+
+        //do not show multi types field
+        multiContents.style.display = 'none';
+        multiTypes.style.display = 'none';
+
+        uniqueType.style.display = 'inline';
+        uniqueContent.style.display = 'inline'
+       
+        uniqueContent.textContent = capitalize(pokeInfo.data.types[0].type.name);
+
+    
+    } else if (types.length > 1) {
         
-        //block single type field
-        document.querySelector('#type').style.display = 'none';
-        document.querySelector('#Type').style.display = 'none';
-        //document.querySelector('#pokemon-types').style.display = 'block';
-        //document.querySelector('#Pokemon-Types').style.display = 'block';
+        //show multi types field
+        multiTypes.style.display = 'inline';
+        multiContents.style.display = 'inline';
 
-        let pokemonTypes = document.querySelector('#pokemon-types');
+        uniqueType.style.display = 'none';
+        uniqueContent.style.display = 'none';
 
-        let firstTypeField = document.createElement("SPAN");
-        let firstTypeContent = (`${types[0].type.name}`);
-        firstTypeField.textContent= capitalize(`${firstTypeContent}, `);
-        pokemonTypes.appendChild(firstTypeField);
+        while(multiContents.firstChild) {
+            multiContents.removeChild(multiContents.firstChild)
+        }
+       
+        types.forEach( type => {
 
-        let secondTypeField = document.createElement("SPAN");
-        let secondTypeContent = (`${types[1].type.name}`);
-        secondTypeField.textContent = capitalize(secondTypeContent);
-        pokemonTypes.appendChild(secondTypeField);
+            let typeField =  document.createElement("SPAN");
+            let typeContent = `${type.type.name} `;
+            typeField.textContent = capitalize(typeContent);
+            //console.log(typeField)
 
-      
+            multiContents.appendChild(typeField);
+            // console.log(type)
 
-
-    } else if ( types.length === 1 ) {
-
-        //block multi types field
-        document.querySelector('#pokemon-types').style.display = 'none';
-        document.querySelector('#Pokemon-Types').style.display = 'none';
-        // document.querySelector('#type').style.display = 'block';
-        // document.querySelector('#Type').style.display = 'block';
-
-        let typeField = document.querySelector('#type');
-        typeField.textContent = capitalize(pokeInfo.data.types[0].type.name);
-
-
-    } else {
-
-        document.querySelector('#pokemon-types').style.display = 'none';
-        document.querySelector('#Pokemon-Types').style.display = 'none';
-        let typeField = document.querySelector('#type');
-        typeField.textContent = 'Normal'
+        })
 
     }
     
@@ -170,4 +185,4 @@ form.addEventListener('submit', function(event) {
     event.preventDefault()
 });
 
-
+search.addEventListener('input', () => searchPokemon(search.value))
