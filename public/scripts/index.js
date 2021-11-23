@@ -72,12 +72,19 @@ function callAPI(pokemon) {
         .then(response => {
             try{
                 //console.log(response)
-                organiseData(response)
+                organiseData(response);
             } catch (e) {
               
-                console.log("Error,", e)
+                console.log("Error,", e);
             }
          
+        })
+
+        .catch( function (error) {
+            //console.log(error.toJSON());
+            search.value = '';
+            alert('Pokemon not found!');
+            
         })
 };
 
